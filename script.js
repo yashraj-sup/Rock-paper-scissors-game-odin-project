@@ -1,15 +1,16 @@
 function getComputerChoice(){
     let x = Math.random()*3;
     if (x<1) {
-        return "Rock"
+        return "rock"
     }
     else if (x<2){
-        return "Paper"
+        return "paper"
     }
     else {
-        return "Scissors"
+        return "scissors"
     }
 }
 function getHumanChoice(){
-    
+    let y = prompt().toLowerCase();
+    return y;
 }
