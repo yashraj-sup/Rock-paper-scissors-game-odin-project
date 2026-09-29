@@ -27,7 +27,9 @@ function playRound(humanChoice,computerChoice){
 document.getElementById("rock").addEventListener("click",function(){handleClick("rock");});
 document.getElementById("paper").addEventListener("click",function(){handleClick("paper");});
 document.getElementById("scissors").addEventListener("click",function(){handleClick("scissors");});
+let gameOver=false;
 function handleClick(humanChoice){
+    if(gameOver) return;
     let computerChoice=getComputerChoice();
     let result=playRound(humanChoice,computerChoice);
     if (result.includes("You win!")) humanScore+=1;
@@ -35,4 +37,6 @@ function handleClick(humanChoice){
     else drawCount+=1;
     document.getElementById("result").textContent=result;
     document.getElementById("score").textContent="Human:" +  humanScore + "| Computer:" + computerScore;
-}
+    if(humanScore>=5) {document.getElementById("result").textContent="You won the game!";gameOver=true;}
+    else if(computerScore>=5){ document.getElementById("result").textContent="You lost the game!"; gameOver=true;}
+}  
